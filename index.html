@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css"></link>
+  <title>Document</title>
+</head>
+<body>
+  <div id="left-section">
+    <div id="logo-section">
+      <img src="odin-lined.png" alt="">
+      <p id="logo-text">ODIN</p>
+    </div>
+  </div>
+  <div id="right-section">
+    <div id="top-right-section">
+      <p>This is not a real online service! You know you need 
+        something like this in your life to help you realise 
+       your deepest dreams. Sign up now to get started.</p>
+      <br>
+      <p>You <i>know</i> you want to.</p>
+    </div>
+    <form action="#" method="post">
+      <div id="form-body-card">
+          <h3>Let's do this!</h3>
+          <div id="form-body">
+            <div class="form-input">
+              <label for="first_name">FIRST NAME</label>
+              <input type="text" id="first_name" name="first_name"
+                                        autocomplete="given-name">
+            </div>
+            <div class="form-input">
+              <label for="last_name">LAST NAME</label>
+              <input type="text" id="last_name" name="last_name"
+                                          autocomplete="family-name">
+            </div>
+            <div class="form-input">
+              <label for="email">EMAIL</label>
+              <input type="email" id="email" name="email" 
+                                      autocomplete="email">
+            </div>
+            <div class="form-input">
+              <label for="phone-number">PHONE NUMBER</label>
+              <input type="tel" id="phone-number" name="phone-number"
+                                            autocomplete="tel">
+            </div>
+            <div class="form-input">
+              <label for="password">PASSWORD</label>
+              <input type="password" id="password" name="password">
+              <p id="password-match-warning"><br></p>
+            </div>
+            <div class="form-input">
+              <label for="confirm-password">CONFIRM PASSWORD</label>
+              <input type="password" id="confirm-password" name="confirm-password">
+            </div>
+          </div>
+      </div>
+        <button id="create-account-button" type="submit">Create Account
+        </button>
+        <p>Already have an account? <a href="#">Log in</a></p>
+    </form> 
+  </div>
+  <script>
+    let passwordInput = document.querySelector("#password");
+    let confirmPasswordInput =document.querySelector("#confirm-password");
+    let passwordMatchWarning = document.querySelector(
+                                         "#password-match-warning");
+
+
+    function comparePasswords(){
+      if (passwordInput.value!=confirmPasswordInput.value){
+        passwordInput.classList.add("error");
+        confirmPasswordInput.classList.add("error");
+        passwordMatchWarning.textContent = "*Passwords do not match";
+      } else {
+        passwordInput.classList.remove("error");
+        confirmPasswordInput.classList.remove("error");
+        passwordMatchWarning.textContent = "\r\n ";
+        passwordMatchWarning.appendChild(document.createElement("br"));
+      }
+    }
+    passwordInput.addEventListener("keyup", comparePasswords);
+    confirmPasswordInput.addEventListener("keyup", comparePasswords);
+  </script>
+</body>
+</html>
